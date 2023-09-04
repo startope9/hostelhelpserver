@@ -15,11 +15,6 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-@app.route('/', methods=['GET'])
-def home():
-    return 'hello bro'
-
-
 @app.route('/adminlog', methods=['POST'])
 def admincredential():
 
