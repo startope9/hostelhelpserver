@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: app
+    branch: main
+    runtime: python
+    buildCommand: pip freeze > requirements.txt
+    startCommand: gunicorn app:app --host 0.0.0.0
