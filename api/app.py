@@ -7,13 +7,20 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-CORS(app, supports_credentials=True, resources={r"/*":{"origins":'https://hostelhelphub.vercel.app/'}}, methods=['GET', 'POST'])
+CORS(app, supports_credentials=True, resources={
+     r"/api/*": {"origins": 'https://hostelhelphub.vercel.app/'}}, methods=['GET', 'POST'])
 
 firebase_credentials = os.environ.get('FIREBASE_CREDENTIALS_JSON')
 cred = credentials.Certificate(json.loads(firebase_credentials))
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
+
+
+@app.route('/home', methods=['GET'])
+def greet():
+    return "Hello from flask"
+
 
 @app.route('/adminlog', methods=['POST'])
 def admincredential():
