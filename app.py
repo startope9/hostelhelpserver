@@ -8,7 +8,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 CORS(app, supports_credentials=True, resources={
-     r"/api/*": {"origins": 'https://hostelhelphub.vercel.app/'}}, methods=['GET', 'POST'])
+     r"/*": {"origins": 'https://hostelhelphub.vercel.app/'}}, methods=['GET', 'POST'])
 
 firebase_credentials = os.environ.get('FIREBASE_CREDENTIALS_JSON')
 cred = credentials.Certificate(json.loads(firebase_credentials))
