@@ -1,4 +1,0 @@
-services:
-  - name: web
-    env: python
-    startCommand: /venv/scripts/activate && /venv/Lib/site-packages/gunicorn -b 0.0.0.0:$PORT app:app
