@@ -30,7 +30,6 @@ def admincredential():
     docs = users_ref.stream()
 
     for doc in docs:
-        print(doc.to_dict())
         if req['Head'] == doc.to_dict()['Head'] and req['Password'] == doc.to_dict()['Password']:
             return '200'
 
@@ -86,13 +85,11 @@ def addAction(what):
         if doc.id == req and what == 'dislike':
             db.collection(u'Problems').document(doc.id).update(
                 {"vote_count": doc.to_dict()['vote_count']-1})
-            print(f'{doc.id} => {doc.to_dict()}')
             break
 
         if doc.id == req and what == 'like':
             db.collection(u'Problems').document(doc.id).update(
                 {"vote_count": firestore.Increment(1)})
-            print(f'{doc.id} => {doc.to_dict()}')
             break
 
     return '200'
