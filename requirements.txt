@@ -3,5 +3,3 @@ flask-cors
 firebase_admin
 gunicorn
 uvicorn
-json
-os
