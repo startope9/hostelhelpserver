@@ -3,5 +3,5 @@ services:
     name: app
     branch: main
     runtime: python
-    buildCommand: pip freeze > requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app --host 0.0.0.0
