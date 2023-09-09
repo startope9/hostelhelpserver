@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 CORS(app, supports_credentials=True,origins= r'https://hostelhelphub.vercel.app/*')
 
-firebase_credentials = os.environ.get('FIREBASE_CREDENTIALS_JSON')
+firebase_credentials = os.environ.get(r'\etc\secrets\FIREBASE_CREDENTIALS_JSON')
 cred = credentials.Certificate(json.loads(firebase_credentials))
 firebase_admin.initialize_app(cred)
 
