@@ -6,10 +6,9 @@ from flask import Flask, request
 from flask_cors import CORS
 
 app = Flask(__name__)
-
 CORS(app, supports_credentials=True,origins= r'https://hostelhelphub.vercel.app/*')
 
-firebase_credentials = os.environ.get('/etc/secrets/FIREBASE_CREDENTIALS_JSON')
+firebase_credentials = os.environ.get('FIREBASE_CREDENTIALS_JSON')
 cred = credentials.Certificate(json.loads(firebase_credentials))
 firebase_admin.initialize_app(cred)
 
@@ -110,4 +109,4 @@ def solved():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
